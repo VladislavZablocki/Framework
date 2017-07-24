@@ -15,7 +15,7 @@ namespace Tests
         public void CreateDictionary()
         {
             Type type = typeof(TestLogin);
-            Driver.SetDriver(AllDrivers.FireFox);
+            Driver.SetDriver(AllDrivers.Chrome);
             foreach (var method in type.GetMethods())
             {
                 if (method.Name != "CreateDictionary" && method.ReturnType.Name == "Void")
