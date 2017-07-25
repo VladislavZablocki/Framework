@@ -8,7 +8,7 @@ using Logic;
 
 namespace Tests
 {
-    [TestFixture]
+    [TestFixture,Category("Search")]
     class TestSearch
     {
         [TestFixtureSetUp]
