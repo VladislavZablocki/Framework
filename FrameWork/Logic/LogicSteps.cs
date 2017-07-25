@@ -1,8 +1,9 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System.Linq;
+using Pages;
 
-namespace Pages
+namespace Logic
 {
     static public class LogicSteps
     {
@@ -19,7 +20,6 @@ namespace Pages
 
         public static LoginPage LoginAs(this LoginPage page, string login, string password)
         {
-            //page.driver.Manage().Window.Maximize();
             page.UserLogin.SendKeys(login);
             page.UserPassword.SendKeys(password);
             page.LoginButton.Click();
@@ -189,7 +189,6 @@ namespace Pages
             return page.driver.FindElements(By.XPath(string.Concat("//article//a[text()='", articleName, "']"))).Count > 0;
         }
 
-        //WAIT loading the second page!!!!
         public static SearchingPage ChooseNumberOfPage(this SearchingPage page,string pageNumber)
         {
             page.Wait.Until(ExpectedConditions.ElementExists(By.XPath(@"//section[@id='wpPagingControl']")));
@@ -200,46 +199,6 @@ namespace Pages
         public static void Close(this BasePage page)
         {
             page.driver.Quit();
-        }
-
-        private static IWebElement GetJournalByName(this LoginPage page, string name)
-        {
-            return page.driver.FindElement(By.XPath(string.Concat("//h4/a[text()='", name, "']")));
-        }
-
-        private static IWebElement GetBeginningSymbolButtonBySymbol(this LoginPage page, string symbol)
-        {
-            return page.driver.FindElement(By.XPath(string.Concat("//div[@id='ej-journals-a-z-alpha-list']/a[text()='", symbol, "']")));
-        }
-
-        private static IWebElement GetAddToFavoritesLinkFromListByArticleName(this JournalPage page, string articleName)
-        {
-            return page.driver.FindElement(By.XPath(string.Concat("//a[@title='",articleName,"']//ancestor::div[1]//a[contains(@onclick,'addToMyCollectionsLinkClicked')]")));
-        }
-
-        private static IWebElement GetFolder(this MyFoldersPage page, string folderName)
-        {
-            return page.driver.FindElement(By.XPath(string.Concat("//tr//a[text()='", folderName, "']")));
-        }
-
-        private static IWebElement GetArticleLinkByName(this JournalPage page, string articleName)
-        {
-            return page.driver.FindElement(By.XPath(string.Concat("//a[@title='", articleName, "']")));
-        }
-
-        private static IWebElement GetNumberPageOfSearch(this SearchingPage page,string number)
-        {
-            return page.driver.FindElement(By.XPath(string.Concat("//div[@class='pagenumbers']/a[text()='",number, "']")));
-        }
-
-        private static IWebElement GetDeleteLinkForSearch(this MyFoldersPage page, string name)
-        {
-            return page.driver.FindElement(By.XPath(string.Concat("//a[contains(@onclick,'", name, "') and contains(text(),'Delete')]")));
-        }
-
-        private static IWebElement GetLinkForSearch(this MyFoldersPage page, string name)
-        {
-            return page.driver.FindElement(By.XPath(string.Concat("//a[contains(@id,'linkMySearch') and text()='", name, "']")));
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Configuration;
 using OpenQA.Selenium;
 using System.Reflection;
 using System;
+using Logic;
 
 namespace Tests
 {

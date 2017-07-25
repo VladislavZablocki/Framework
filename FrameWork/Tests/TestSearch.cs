@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Reflection;
 using System;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+using Logic;
 
 namespace Tests
 {

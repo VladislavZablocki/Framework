@@ -24,7 +24,6 @@ namespace Pages
                     driver.Manage().Window.Size = new System.Drawing.Size(1680,1050);
                     break;
             }
-            //driver.Manage().Window.Maximize();
             return driver;
         }
     }

@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Reflection;
 using System;
 using OpenQA.Selenium;
+using Logic;
 
 namespace Tests
 {
@@ -54,7 +55,6 @@ namespace Tests
             page.DeleteFolder();
             page.Close();
             Assert.AreEqual(true, actual);
-
         }
     }
 }
