@@ -8,7 +8,7 @@ using Logic;
 
 namespace Tests
 {
-    [TestFixture]
+    [TestFixture, Category("Login")]
     public class TestLogin
     {
 
