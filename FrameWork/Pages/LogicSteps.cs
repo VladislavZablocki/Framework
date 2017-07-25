@@ -19,7 +19,7 @@ namespace Pages
 
         public static LoginPage LoginAs(this LoginPage page, string login, string password)
         {
-            page.driver.Manage().Window.Maximize();
+            //page.driver.Manage().Window.Maximize();
             page.UserLogin.SendKeys(login);
             page.UserPassword.SendKeys(password);
             page.LoginButton.Click();
@@ -111,7 +111,7 @@ namespace Pages
 
         public static void CreateNewFolder(WindowAddToFolder window, string folderName)
         {
-            window.Wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(@"//div[@class='wk-modal-body'])[1]")));
+            window.Wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(@"//span[contains(@id,'lblTitle') and text()='Add Item(s) to:']")));
             window.NewFolderRadioButton.Click();
             window.NewFolderLabel.Click();
             window.InputFolderNameTextbox.SendKeys(folderName);

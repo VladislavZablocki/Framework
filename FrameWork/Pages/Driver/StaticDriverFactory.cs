@@ -14,15 +14,17 @@ namespace Pages
             {
                 case AllDrivers.Chrome:
                     driver = new ChromeDriver();
+                    driver.Manage().Window.Maximize();
                     break;
                 case AllDrivers.Edge:
                     driver = new EdgeDriver();
                     break;
                 case AllDrivers.FireFox:
                     driver = new FirefoxDriver();
+                    driver.Manage().Window.Size = new System.Drawing.Size(1680,1050);
                     break;
             }
-            driver.Manage().Window.Maximize();
+            //driver.Manage().Window.Maximize();
             return driver;
         }
     }

@@ -14,7 +14,7 @@ namespace Tests
         public void CreateDictionary()
         {
             Type type = typeof(TestFavoritesArticle);
-            Driver.SetDriver(AllDrivers.Chrome);
+            Driver.SetDriver((AllDrivers)Enum.Parse(typeof(AllDrivers), ConfigurationManager.AppSettings["Driver"]));
             foreach (var method in type.GetMethods())
             {
                 if (method.Name != "CreateDictionary" && method.ReturnType.Name == "Void")

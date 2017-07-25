@@ -13,6 +13,7 @@ namespace Pages
         [FindsBy(How = How.XPath,Using = @"//section//input[@value='Add Item(s)']")]
         public IWebElement AddItemButton { get; set; }
 
+        //IWebElement ekek => driver.FindElement
         [FindsBy(How = How.XPath, Using = @"//div/input[contains(@name,'txtCollectionName')]")]
         public IWebElement InputFolderNameTextbox { get; set; }
 
@@ -28,7 +29,7 @@ namespace Pages
         public WindowAddToFolder(IWebDriver driver)
         {
             this.driver = driver;
-            new WebDriverWait(this.driver, TimeSpan.FromSeconds(20));
+            Wait = new WebDriverWait(this.driver, TimeSpan.FromSeconds(20));
             PageFactory.InitElements(driver, this);
         }
     }
